@@ -26,8 +26,11 @@ CREATE TABLE games(
     yr_released YEAR NOT NULL,
     cover TINYTEXT,
     price FLOAT(4, 2),
-    CONSTRAINT pk_games (game_id),
-    CONSTRAINT fk_company_id FOREIGN KEY (company_id) REFERENCES company(company_id),
+    company_id SMALLINT UNSIGNED,
+    developer_id SMALLINT UNSIGNED,
+    CONSTRAINT pk_games PRIMARY KEY (game_id),
+    CONSTRAINT fk_company FOREIGN KEY (company_id) REFERENCES company (company_id),
+    CONSTRAINT fk_developer FOREIGN KEY (developer_id) REFERENCES developer (developer_id),
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -39,15 +42,27 @@ CREATE TABLE genre(
 );
 
 CREATE TABLE game_to_genre(
-    game_id SMALLINT UNSIGNED NOT NULL,
-    genre_id TINYINT UNSIGNED NOT NULL,
-    CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES games (game_id),
+    game_id SMALLINT UNSIGNED,
+    genre_id SMALLINT UNSIGNED,
+    CONSTRAINT fk_games FOREIGN KEY (game_id) REFERENCES games (game_id),
     CONSTRAINT fk_genre FOREIGN KEY (genre_id) REFERENCES genre (genre_id)
 );
 
 CREATE TABLE game_to_dev(
     game_id SMALLINT UNSIGNED NOT NULL,
     developer_id SMALLINT UNSIGNED NOT NULL,
-    CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES games (game_id),
-    CONSTRAINT fk_genre FOREIGN KEY (genre_id) REFERENCES genre (genre_id)
+    CONSTRAINT fk_games FOREIGN KEY (game_id) REFERENCES games (game_id),
+    CONSTRAINT fk_developer FOREIGN KEY (developer_id) REFERENCES developer (developer_id)
 );
+
+CREATE TABLE game_do_comp(
+    game_id SMALLINT UNSIGNED NOT NULL,
+    company_id SMALLINT UNSIGNED NOT NULL,
+    CONSTRAINT fk_gameC FOREIGN KEY (game_id) REFERENCES games (game_id),
+    CONSTRAINT fk_comps FOREIGN KEY (company_id) REFERENCES company (company_id)
+);
+
+ALTER TABLE game_to_dev
+    ADD CONSTRAINT fk_games FOREIGN KEY (game_id) REFERENCES games (game_id);
+
+ALTER TABLE games ADD CONSTRAINT fk_developerS FOREIGN KEY (developer_id) REFERENCES developer (developer_id);
