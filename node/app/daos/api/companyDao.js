@@ -6,8 +6,8 @@ const companyDao = {
 
     getComp: (req, res, table) => {
         con.execute(
-            `SELECT comp.company.id, comp.company_title
-            FROM company comp;`,
+            `SELECT company_id, company_title
+            FROM company;`,
             (error, rows)=> {
                 if (!error) {
                     if (rows.length == 1) {

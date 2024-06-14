@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const {developerDao: dao} = require('../../daos/daoCommon');
+const {developerDao: dao} = require('../../daos/dao');
 
 router.get('/', (req, res)=> {
-    dao.findAll(req, res, dao.table)
+    dao.findAll(res, dao.table)
 });
 
 module.exports = router
