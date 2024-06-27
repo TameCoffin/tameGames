@@ -5,14 +5,15 @@ const PORT = process.env.PORT || 3005;
 
 // const tables = [ 'company' ];
 
-const tables = [ 'company', 'developer', 'games', 'genre' ];
+const tables = [ 'company', 'developer', 'games', 'genre', 'users' ];
 
 router.get('/', (req, res)=> {
     res.json({
         'All Companies': `http://localhost:${PORT}/api/company`,
         'All Developers': `http://localhost:${PORT}/api/developer`,
         'All Games': `http://localhost:${PORT}/api/games`,
-        'All Genres': `http://localhost:${PORT}/api/genre`
+        'All Genres': `http://localhost:${PORT}/api/genre`,
+        'All Users': `http://localhost:${PORT}/api/users`
     })
 })
 

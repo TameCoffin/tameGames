@@ -41,6 +41,16 @@ CREATE TABLE genre(
     CONSTRAINT pk_genre PRIMARY KEY (genre_id)
 );
 
+CREATE TABLE user (
+    user_id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(40) NOT NULL,
+    lastName VARCHAR(40) NOT NULL,
+    email VARCHAR(60) UNIQUE NOT NULL,
+    phone VARCHAR(10) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    CONSTRAINT pk_user PRIMARY KEY (user_id)
+);
+
 CREATE TABLE game_to_genre(
     game_id SMALLINT UNSIGNED,
     genre_id SMALLINT UNSIGNED,

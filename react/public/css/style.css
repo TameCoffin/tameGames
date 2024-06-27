@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika Negative', sans-serif;
+    list-style-type: none;
+}
+
+body {
+    background-color: rgb(65, 57, 97);
+    transition: .5s ease;
+}
+
+/* --------------------------------------------------------------------HEADER---------------------------------------------------- */
+
+/* NAV BAR */
+
+header {
+    background-color: rgb(50, 47, 59);
+    border-bottom: 10px solid rgb(32, 28, 43);
+}
+
+.heading {
+    text-align: center;
+    background-color: rgb(140, 131, 176);
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.329);
+    padding: 15px;
+}
+
+.nav-link {
+    border: 2px solid rgba(0, 0, 0, 0.329);
+    background-color: rgb(140, 131, 176);
+    border-radius: 15px;
+    padding: 18px;
+    color: rgb(29, 59, 66);
+}
+
+.navbar-brand {
+    font-size: larger;
+    text-decoration: underline;
+    color: rgb(29, 59, 66);
+}
+
+#gameLink {
+    font-size: 25px;
+    font-weight: bold;
+}

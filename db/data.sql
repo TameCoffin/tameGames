@@ -42,6 +42,15 @@ VALUES
     ('serious sam: the first encounter', 2001, 'serioussam.jpg', 1, 30.00),
     ('super paper mario', 2007, 'spm.jpg', 6, 30.00);
 
+INSERT INTO user (firstName, lastName, email, phone, password)
+VALUES (
+    'seth',
+    'howell',
+    'sethhowelltame@gmail.com',
+    '6018992592',
+    'test1word!'
+);
+
 INSERT INTO game_to_dev (game_id, developer_id)
 VALUE 
     (2, 1),
