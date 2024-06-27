@@ -6,9 +6,11 @@ import Header from "./components/Header"
 import Home from "./components/Home"
 import Footer from "./components/Footer"
 import Error404 from './components/Error404'
-import Buy from './components/Buy'
+import GamePage from './components/GamePage'
 
 const App =()=> {
+
+    // set inital values
 
     const [ games, setGames ] = useState([])
     const [ users, setUsers ] = useState([])
@@ -20,6 +22,7 @@ const App =()=> {
         password: ''
     })
 
+    // fetch call get data from each table
     useEffect(()=> {
         const url = 'http://localhost:3005/api/games'
 
@@ -63,6 +66,7 @@ const App =()=> {
             <Routes>
                 <Route path="/" element={ <Home /> } />
                 <Route path="*" element={ <Error404 /> } />
+                <Route path="/games/:id" element={ <GamePage />}/>
             </Routes>
             </>
         )

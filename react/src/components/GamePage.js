@@ -7,6 +7,8 @@ const GamePage =()=> {
     const [ games, setGame ] = useState({})
     const params = useParams
 
+
+    // captures info from url
     const url = `http://localhost:3005/api/games/${params.id}`
 
     useEffect(()=> {
@@ -24,8 +26,8 @@ const GamePage =()=> {
                     <div className="col-6">
                     <ul className="list-group">
                             <li className="list-group-item text-capitalize">Developer/Company: {games.developer_title || games.company_title || `${games.fName} ${games.lastName}`}</li>
-                            <li className="list-group-item text-capitalize">year released: {album.yr_released}</li>
-                            <li className="list-group-item">${album.price}</li>
+                            <li className="list-group-item text-capitalize">year released: {games.yr_released}</li>
+                            <li className="list-group-item">${games.price}</li>
                         </ul>
                     </div>
                 </div>
@@ -33,3 +35,5 @@ const GamePage =()=> {
         </main>
     )
 }
+
+export default GamePage
